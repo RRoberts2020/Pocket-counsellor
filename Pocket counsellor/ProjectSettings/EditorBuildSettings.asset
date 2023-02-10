@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Level/MainMenu.unity
+    path: Assets/Level/MainScene.unity
     guid: e30c033249e6d664ca7721a6121e79dd
   - enabled: 1
     path: Assets/Level/TakePicture.unity

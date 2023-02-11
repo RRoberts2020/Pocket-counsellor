@@ -10,11 +10,12 @@ public class TakePicture : MonoBehaviour
 {
     static WebCamTexture backCam;
 
-    void Start()
+    void Update()
     {
         if (backCam == null)
         {
             backCam = new WebCamTexture();
+
             Debug.Log("Got WebCamTexture");
         }
             

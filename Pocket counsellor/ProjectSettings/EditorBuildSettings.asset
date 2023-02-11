@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level/TakePicture.unity
     guid: 4665393991d8086409ed05480c158b5f
+  - enabled: 1
+    path: Assets/Level/ViewPicture.unity
+    guid: ae77f0aa27702cb499889eb1a446a8fe
   m_configObjects: {}

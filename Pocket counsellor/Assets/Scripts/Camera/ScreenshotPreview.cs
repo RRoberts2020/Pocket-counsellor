@@ -11,12 +11,9 @@ public class ScreenshotPreview : MonoBehaviour {
 	string[] files = null;
 	int whichScreenShotIsShown= 0;
 
-    // Use this for initialization
-    void Start () {
-		files = Directory.GetFiles(Application.persistentDataPath + "/PC-Photos/", "*.png");
-		//files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png");
-		//(Application.dataPath + "/PC-Photos/" + timeStamp + "-photo.png", bytes);
-
+	// Use this for initialization
+	void Start () {
+		files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png");
 		if (files.Length > 0) {
 			GetPictureAndShowIt ();
 		}

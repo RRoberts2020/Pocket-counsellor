@@ -141,7 +141,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.01 Alpha
+  bundleVersion: 0.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -162,11 +162,12 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.ReeceRoberts.Pocketcounsellor
+    Standalone: com.Reece-Roberts.Pocket-counsellor
   buildNumber:
     Standalone: 0
     iPhone: 0
     tvOS: 0
-  overrideDefaultApplicationIdentifier: 0
+  overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
@@ -347,38 +348,32 @@ PlayerSettings:
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
-    - m_Textures:
-      - {fileID: 0}
+    - m_Textures: []
       m_Width: 192
       m_Height: 192
       m_Kind: 1
       m_SubKind: 
-    - m_Textures:
-      - {fileID: 0}
+    - m_Textures: []
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
-    - m_Textures:
-      - {fileID: 0}
+    - m_Textures: []
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
-    - m_Textures:
-      - {fileID: 0}
+    - m_Textures: []
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
-    - m_Textures:
-      - {fileID: 0}
+    - m_Textures: []
       m_Width: 48
       m_Height: 48
       m_Kind: 1
       m_SubKind: 
-    - m_Textures:
-      - {fileID: 0}
+    - m_Textures: []
       m_Width: 36
       m_Height: 36
       m_Kind: 1

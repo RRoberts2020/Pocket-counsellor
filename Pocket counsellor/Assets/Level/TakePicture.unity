@@ -719,10 +719,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 62092216}
+  - {fileID: 1973712222}
   - {fileID: 1757131509}
   - {fileID: 1930810719}
   - {fileID: 589452325}
-  - {fileID: 1973712222}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942734727}
+      - m_Target: {fileID: 1973712226}
         m_TargetAssemblyTypeName: TakeScreenshot, Assembly-CSharp
         m_MethodName: TakeAShot
         m_Mode: 1
@@ -1345,7 +1345,6 @@ GameObject:
   - component: {fileID: 1942734726}
   - component: {fileID: 1942734725}
   - component: {fileID: 1942734724}
-  - component: {fileID: 1942734727}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1402,19 +1401,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1942734727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942734723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2ee56e1923ce9479174b58ec2c23e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blink: {fileID: 1930810718}
 --- !u!1 &1973712221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1413,7 @@ GameObject:
   - component: {fileID: 1973712224}
   - component: {fileID: 1973712223}
   - component: {fileID: 1973712225}
+  - component: {fileID: 1973712226}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1449,10 +1436,10 @@ RectTransform:
   m_Father: {fileID: 1467412206}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -331.36, y: -0.0029297}
-  m_SizeDelta: {x: 2732, y: 1600}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 3.6828613, y: 0}
+  m_SizeDelta: {x: 615.93, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973712223
 MonoBehaviour:
@@ -1502,7 +1489,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 3
-  m_AspectRatio: 1.7077625
+  m_AspectRatio: 1.75
+--- !u!114 &1973712226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973712221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2ee56e1923ce9479174b58ec2c23e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blink: {fileID: 1930810718}
 --- !u!1 &2093364168
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,11 @@ using UnityEngine;
 public class TakeScreenshot : MonoBehaviour {
 
 	[SerializeField]
-	GameObject blink;
+	GameObject UI;
 
 	public void TakeAShot()
 	{
+		UI.SetActive(false);
 		StartCoroutine ("CaptureIt");
 	}
 
@@ -19,7 +20,9 @@ public class TakeScreenshot : MonoBehaviour {
 		string pathToSave = fileName;
 		ScreenCapture.CaptureScreenshot(pathToSave);
 		yield return new WaitForEndOfFrame();
-		Instantiate (blink, new Vector2(0f, 0f), Quaternion.identity);
+		Rect resource_background_Rect = new Rect(960, 400, 500, 30);
+		GUI.Box(resource_background_Rect, "You have taken a photo");
+		UI.SetActive(true);
 	}
 
 }

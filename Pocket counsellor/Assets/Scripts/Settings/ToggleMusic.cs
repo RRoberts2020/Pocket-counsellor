@@ -54,23 +54,23 @@ public class ToggleMusic : MonoBehaviour
         PlayerPrefs.SetInt("ToggleSelected", 0);
 
         Song1.Play();
-        Song2.Stop();
-        Song3.Stop();
+        Song2.Pause();
+        Song3.Pause();
     }
     public void Toggle2Selected()
     {
         PlayerPrefs.SetInt("ToggleSelected", 1);
 
-        Song1.Stop();
+        Song1.Pause();
         Song2.Play();
-        Song3.Stop();
+        Song3.Pause();
     }
     public void Toggle3Selected()
     {
         PlayerPrefs.SetInt("ToggleSelected", 2);
 
-        Song1.Stop();
-        Song2.Stop();
+        Song1.Pause();
+        Song2.Pause();
         Song3.Play();
     }
     public void Toggle4Selected()

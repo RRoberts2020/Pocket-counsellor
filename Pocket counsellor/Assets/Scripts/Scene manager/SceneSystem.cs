@@ -20,6 +20,11 @@ public class SceneSystem : MonoBehaviour
         SceneManager.LoadScene(Game2Scene);
     }
 
+    public void Game3Scene(string Game3Scene)
+    {
+        SceneManager.LoadScene(Game3Scene);
+    }
+
     public void TakePicture(string TakePicture)
     {
         SceneManager.LoadScene(TakePicture);

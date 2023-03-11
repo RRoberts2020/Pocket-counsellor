@@ -5,6 +5,9 @@ using UnityEngine;
 public class Fruit : MonoBehaviour
 {
 
+    GameManager isSlicedCheck;
+
+
     public GameObject fruitSlicedPrefab;
 
     public float startForce = 15f;
@@ -17,7 +20,7 @@ public class Fruit : MonoBehaviour
         rb.AddForce(transform.up * startForce, ForceMode2D.Impulse);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Blade")
         {
@@ -26,10 +29,19 @@ public class Fruit : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(direction);
 
             GameObject slicedFruit = Instantiate(fruitSlicedPrefab, transform.position, rotation);
+
             Destroy(slicedFruit, 3f);
             Destroy(gameObject);
         }
+        while (col.tag == "Blade")
+        {
+            addPoint();
+        }
     }
 
+    public void addPoint()
+    {
+        isSlicedCheck.isSliced = true;
+    }
 
 }

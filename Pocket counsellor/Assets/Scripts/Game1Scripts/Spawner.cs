@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public GameManager gameStateCheck;
 
     public GameObject fruitPrefab;
     public Transform[] spawnPoints;
@@ -11,15 +12,9 @@ public class Spawner : MonoBehaviour
     public float minDelay = 0.1f;
     public float maxDelay = 1f;
 
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator SpawnFruits ()
     {
-        StartCoroutine(SpawnFruits());
-    }
-
-    IEnumerator SpawnFruits ()
-    {
-        while (true)
+        while (gameStateCheck.gamePlayState == true)
         {
             float delay = Random.Range(minDelay, maxDelay);
             yield return new WaitForSeconds(delay);

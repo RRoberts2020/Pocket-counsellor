@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-
-    GameManager isSlicedCheck;
-
-
     public GameObject fruitSlicedPrefab;
 
     public float startForce = 15f;
@@ -22,8 +18,10 @@ public class Fruit : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Blade")
+        if (col.CompareTag("Blade"))
         {
+            FindObjectOfType<GameManager>().AddPoint();
+
             Vector3 direction = (col.transform.position - transform.position).normalized;
 
             Quaternion rotation = Quaternion.LookRotation(direction);
@@ -33,15 +31,5 @@ public class Fruit : MonoBehaviour
             Destroy(slicedFruit, 3f);
             Destroy(gameObject);
         }
-        while (col.tag == "Blade")
-        {
-            addPoint();
-        }
     }
-
-    public void addPoint()
-    {
-        isSlicedCheck.isSliced = true;
-    }
-
 }

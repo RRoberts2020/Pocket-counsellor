@@ -6,13 +6,15 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
 
+    public AudioSource sliceSFX;
+
     #region [Score]
 
     public TextMeshProUGUI scoreText;
 
-    private int score;
+    public TextMeshProUGUI endScoreText;
 
-    public bool isSliced;
+    public int score;
 
     #endregion
 
@@ -27,6 +29,10 @@ public class GameManager : MonoBehaviour
     #region [GameState]
 
     public int lives;
+
+    public bool gamePlayState;
+
+    public bool gameMenuState;
 
     public GameObject mainMenuUI;
 
@@ -50,14 +56,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (lives == 0 || timeRemaining == 0)
+        if (lives == 0 || timeRemaining == 0 && gameMenuState == false)
         {
             GameOver();
-        }
-
-        if (isSliced == true)
-        {
-            AddPoint();
         }
 
         if (timerIsRunning)
@@ -69,7 +70,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                GameOver();
                 timeRemaining = 0;
                 timerIsRunning = false;
             }
@@ -78,12 +78,22 @@ public class GameManager : MonoBehaviour
 
     public void AddPoint()
     {
+        sliceSFX.Stop();
+        sliceSFX.Play();
         score++;
-        isSliced = false;
+        scoreText.text = "Score: " + score.ToString();
     }
 
     public void RestartGame()
     {
+        timeRemaining = 300;
+        timerIsRunning = true;
+        lives = 3;
+        score = 0;
+
+        gamePlayState = true;
+
+        gameMenuState = false;
 
         mainMenuUI.SetActive(false);
 
@@ -91,23 +101,34 @@ public class GameManager : MonoBehaviour
 
         gameOverUI.SetActive(false);
 
-        timeRemaining = 300;
-        timerIsRunning = true;
-        lives = 3;
-        score = 0;
+        StartCoroutine(FindObjectOfType<Spawner>().SpawnFruits());
     }
 
     public void GameOver()
     {
+        gamePlayState = false;
 
         timeText.text = "00:0" + timeRemaining.ToString();
         timerIsRunning = false;
+
+        endScoreText.text = "Score: " + score.ToString();
 
         mainMenuUI.SetActive(false);
 
         gameplayElements.SetActive(false);
 
         gameOverUI.SetActive(true);
+    }
+
+    public void returnToMenu()
+    {
+        gameMenuState = true;
+
+        mainMenuUI.SetActive(true);
+
+        gameplayElements.SetActive(false);
+
+        gameOverUI.SetActive(false);
     }
 
 

@@ -25,6 +25,11 @@ public class SceneSystem : MonoBehaviour
         SceneManager.LoadScene(Game3Scene);
     }
 
+    public void TalkToMeScene(string TalkToMe)
+    {
+        SceneManager.LoadScene(TalkToMe);
+    }
+
     public void TakePicture(string TakePicture)
     {
         SceneManager.LoadScene(TakePicture);

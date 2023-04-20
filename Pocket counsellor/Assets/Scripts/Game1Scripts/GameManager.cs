@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
-    public void returnToMenu()
+    public void ReturnToMenu()
     {
         gameMenuState = true;
 

@@ -26,9 +26,24 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region [GameState]
+    #region [Lives]
+
+    public GameObject liveParentObjectP1;
+
+    public GameObject liveParentObjectP2;
+
+    public TextMeshProUGUI liveText;
+
+    public TextMeshProUGUI endliveText;
 
     public int lives;
+
+    public GameObject KillTrigger;
+
+    #endregion
+
+
+    #region [GameState]
 
     public bool gamePlayState;
 
@@ -36,21 +51,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject mainMenuUI;
 
+    public GameObject difficultyUI;
+
     public GameObject gameplayElements;
 
     public GameObject gameOverUI;
 
     #endregion
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        lives = 3;
-        timeRemaining = 300;
-        timerIsRunning = false;
-        scoreText.text = "Score: " + score.ToString();
-    }
 
     // Update is called once per frame
     void Update()
@@ -84,18 +92,42 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
     }
 
+    public void LoseLive()
+    {
+        lives -= 1;
+        liveText.text = "Lives: " + lives.ToString();
+    }
+
+    public void DifficultyHard()
+    {
+        KillTrigger.SetActive(true);
+        liveParentObjectP1.SetActive(true);
+        liveParentObjectP2.SetActive(true);
+    }
+
+    public void DifficultyEasy()
+    {
+        KillTrigger.SetActive(false);
+        liveParentObjectP1.SetActive(false);
+        liveParentObjectP2.SetActive(false);
+    }
+
     public void RestartGame()
     {
         timeRemaining = 300;
         timerIsRunning = true;
-        lives = 3;
+        lives = 10;
         score = 0;
+
+        scoreText.text = "Score: " + score.ToString();
+
+        liveText.text = "Lives: " + lives.ToString();
 
         gamePlayState = true;
 
         gameMenuState = false;
 
-        mainMenuUI.SetActive(false);
+        difficultyUI.SetActive(false);
 
         gameplayElements.SetActive(true);
 
@@ -108,16 +140,24 @@ public class GameManager : MonoBehaviour
     {
         gamePlayState = false;
 
-        timeText.text = "00:0" + timeRemaining.ToString();
+        DisplayTime(timeRemaining);
+        //timeText.text = "00:0" + timeRemaining.ToString();
         timerIsRunning = false;
 
-        endScoreText.text = "Score: " + score.ToString();
+        endScoreText.text = "Your Score: " + score.ToString();
+
+        endliveText.text = "Lives Remaining: " + lives.ToString();
 
         mainMenuUI.SetActive(false);
 
         gameplayElements.SetActive(false);
 
         gameOverUI.SetActive(true);
+
+        timeRemaining = 300;
+        lives = 3;
+        score = 0;
+
     }
 
     public void ReturnToMenu()
